@@ -37,7 +37,9 @@ FILES_TO_PACK_P1 = ../$(BASE_DIR)/p1/DefenseStrategy.example.cpp ../$(BASE_DIR)/
 
 FILES_TO_PACK_P2 = ../$(BASE_DIR)/p2/DefensesSelection.example.cpp ../$(BASE_DIR)/p2/e*.tex ../$(BASE_DIR)/p2/p2.tex ../$(BASE_DIR)/p2/guion-p2.pdf ../$(BASE_DIR)/p2/Makefile $(BIN_P2)
 
-FILES_TO_PACK_P3 = ../$(BASE_DIR)/p3/cronometro.h ../$(BASE_DIR)/p3/data.txt ../$(BASE_DIR)/p3/DefenseStrategy.example.cpp ../$(BASE_DIR)/p3/e*.tex ../$(BASE_DIR)/p3/p3.tex ../$(BASE_DIR)/p3/guion-p3.pdf ../$(BASE_DIR)/p3/Makefile ../$(BASE_DIR)/p3/graphic.plot $(BIN_P3)
+# FILES_TO_PACK_P3 = ../$(BASE_DIR)/p3/cronometro.h ../$(BASE_DIR)/p3/data.txt ../$(BASE_DIR)/p3/DefenseStrategy.example.cpp ../$(BASE_DIR)/p3/e*.tex ../$(BASE_DIR)/p3/p3.tex ../$(BASE_DIR)/p3/guion-p3.pdf ../$(BASE_DIR)/p3/Makefile ../$(BASE_DIR)/p3/graphic.plot $(BIN_P3)
+
+FILES_TO_PACK_P3 = ../$(BASE_DIR)/p3/cronometro.h ../$(BASE_DIR)/p3/DefenseStrategy.example.cpp ../$(BASE_DIR)/p3/e*.tex ../$(BASE_DIR)/p3/p3.tex ../$(BASE_DIR)/p3/guion-p3.pdf ../$(BASE_DIR)/p3/Makefile ../$(BASE_DIR)/p3/graphic.plot $(BIN_P3)
 
 FILES_TO_PACK_P4 = ../$(BASE_DIR)/p4/PathFind.example.cpp ../$(BASE_DIR)/p4/e*.tex ../$(BASE_DIR)/p4/p4.tex ../$(BASE_DIR)/p4/guion-p4.pdf ../$(BASE_DIR)/p4/Makefile ../$(BASE_DIR)/p4/ppm.h $(BIN_P4)
 

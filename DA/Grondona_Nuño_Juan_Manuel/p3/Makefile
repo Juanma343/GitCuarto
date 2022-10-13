@@ -8,9 +8,9 @@ RELATIVE_ERROR_TIME = 0.1
 
 # Cuidado con la configuración del editor de texto. Los comandos de los objetivos deben de ir precedidos por tabuladores, NO ESPACIOS (error: falta separador). 
 
-FILES_TO_PACK_P1 = ../p1/DefenseStrategy.cpp ../p1/*.tex ../p1/p1.pdf ../autor.tex ../p1/Makefile ../p1/ppm.h ../p1/*.conf
-FILES_TO_PACK_P2 = ../p2/DefensesSelection.cpp ../p2/*.tex ../p2/p2.pdf ../p2/Makefile ../p2/*.conf
-FILES_TO_PACK_P3 = ../p3/DefenseStrategy.cpp ../p3/*.tex ../p3/p3.pdf ../p3/Makefile ../p3/cronometro.h ../p3/*.conf
+FILES_TO_PACK_P1 = ../p1/DefenseStrategy.cpp ../p1/*.tex ../p1/p1.pdf ../autor.tex ../p1/Makefile ../p1/ppm.h
+FILES_TO_PACK_P2 = ../p2/DefensesSelection.cpp ../p2/*.tex ../p2/p2.pdf ../p2/Makefile
+FILES_TO_PACK_P3 = ../p3/DefenseStrategy.cpp ../p3/*.tex ../p3/p3.pdf ../p3/Makefile ../p3/cronometro.h
 CC = g++ # C++ compiler
 CFLAGS = -fPIC -O2 -ffloat-store -std=c++11 -fpermissive # -Wall -Wextra -g 
 LDFLAGS = -shared # linking flags

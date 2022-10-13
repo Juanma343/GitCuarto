@@ -1,5 +1,5 @@
 import java.io.*;
-Import java.util.*;
+import java.util.*;
 
 public class Control extends Thread {
 	//No declara constructor explicito. Usa el disponible por defecto
