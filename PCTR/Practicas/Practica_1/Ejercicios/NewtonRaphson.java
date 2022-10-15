@@ -37,9 +37,23 @@ public class NewtonRaphson {
         System.out.println("¿Que función prefiere? 1 o 2");
         Scanner a = new Scanner(System.in);
         int elecion = a.nextInt();
-        System.out.println("Aproxmacion inicial:");
-        a = new Scanner(System.in);
-        double x = a.nextDouble();
+        boolean compro = true;
+        double x;
+        do{
+            System.out.println("Aproxmacion inicial:");
+            a = new Scanner(System.in);
+            x = a.nextDouble();
+            if (elecion == 1){
+                compro = x < 0 || x > 1;
+            }
+            else if (elecion == 2){
+                compro = x < 2 || x > 3;
+            }
+
+            if (compro){
+                System.out.println("fuera de rango");
+            }
+        }while(compro);
         System.out.println("Iteraciones:");
         a = new Scanner(System.in);
         int it = a.nextInt();
