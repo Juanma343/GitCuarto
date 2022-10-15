@@ -13,14 +13,14 @@ public class calculo{
     public static void main(String[] args){
         funcion funcion_;
         System.out.println("¿Que función prefiere? 1 o 2");
-        Scanner a = new Scanner(System.in);
-        int elecion = a.nextInt();
+        Scanner en = new Scanner(System.in);
+        int elecion = en.nextInt();
         boolean compro = true;
         double x;
         do{
             System.out.println("Aproxmacion inicial:");
-            a = new Scanner(System.in);
-            x = a.nextDouble();
+            en = new Scanner(System.in);
+            x = en.nextDouble();
             if (elecion == 1){
                 compro = x < 0 || x > 1;
             }
@@ -33,8 +33,8 @@ public class calculo{
             }
         }while(compro);
         System.out.println("Iteraciones:");
-        a = new Scanner(System.in);
-        int it = a.nextInt();
+        en = new Scanner(System.in);
+        int it = en.nextInt();
 
         if (elecion == 1){
             funcion_ = new NewtonRaphsno_Fa(x, it);
