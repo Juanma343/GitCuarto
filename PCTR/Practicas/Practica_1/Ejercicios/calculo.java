@@ -35,6 +35,7 @@ public class calculo{
         System.out.println("Iteraciones:");
         en = new Scanner(System.in);
         int it = en.nextInt();
+        en.close();
 
         if (elecion == 1){
             funcion_ = new NewtonRaphsno_Fa(x, it);
