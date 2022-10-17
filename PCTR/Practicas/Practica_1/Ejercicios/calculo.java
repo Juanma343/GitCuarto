@@ -1,5 +1,5 @@
 //import java.util.Scanner ;
-import java.util.*;
+import java.util.Scanner;
 
 interface funcion {
     public abstract double f (double x);
