@@ -19,7 +19,6 @@ public class calculo{
         double x;
         do{
             System.out.println("Aproxmacion inicial:");
-            en = new Scanner(System.in);
             x = en.nextDouble();
             if (elecion == 1){
                 compro = x < 0 || x > 1;
@@ -33,7 +32,6 @@ public class calculo{
             }
         }while(compro);
         System.out.println("Iteraciones:");
-        en = new Scanner(System.in);
         int it = en.nextInt();
         en.close();
 

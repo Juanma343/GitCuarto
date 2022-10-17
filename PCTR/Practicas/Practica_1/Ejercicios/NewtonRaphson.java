@@ -41,7 +41,7 @@ public class NewtonRaphson {
         double x;
         do{
             System.out.println("Aproxmacion inicial:");
-            a = new Scanner(System.in);
+            //a = new Scanner(System.in);
             x = a.nextDouble();
             if (elecion == 1){
                 compro = x < 0 || x > 1;
@@ -55,8 +55,9 @@ public class NewtonRaphson {
             }
         }while(compro);
         System.out.println("Iteraciones:");
-        a = new Scanner(System.in);
+        //a = new Scanner(System.in);
         int it = a.nextInt();
+        a.close();
 
         if (elecion == 1){
             aproxa(x, it);

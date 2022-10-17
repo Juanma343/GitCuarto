@@ -37,8 +37,9 @@ public class intDefinidaMonteCarlo{
         Scanner a = new Scanner(System.in);
         int elecion = a.nextInt();
         System.out.println("¿Cuatos puntos desea?");
-        a = new Scanner(System.in);
+        // a = new Scanner(System.in);
         int n = a.nextInt();
+        a.close();
         
         
         if (elecion == 1){
