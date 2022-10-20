@@ -7,8 +7,8 @@
 public class Empleado{
     
     private int numeroEmpleado;
-    private String departamento;
-    private String puesto;
+    // private String departamento;
+    // private String puesto;
     
     /**
      * Metodo constructor por defecto
@@ -31,10 +31,10 @@ public class Empleado{
                     int numeroEmpleado, 
                     String departamento, 
                     String puesto){
-        super(nombre, edad, sexo);
+        // super(nombre, edad, sexo);
         this.numeroEmpleado = numeroEmpleado;
-        this.departamento = departamento;
-        this.puesto = puesto;
+        // this.departamento = departamento;
+        // this.puesto = puesto;
     }
     
     /**

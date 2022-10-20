@@ -5,6 +5,7 @@ public class NewtonRaphson {
     public static void aproxa(double x, int n){
         for(int i = 1; i <= n; i++){
             x = x - fa(x)/fpa(x);
+            System.out.println("La " + i + " iteracion se aproxima a " + x);
         }
         System.out.println("La funcion vale 0 en x = " + x);
     }
@@ -12,6 +13,7 @@ public class NewtonRaphson {
     public static void aproxb(double x, int n){
         for(int i = 1; i <= n; i++){
             x = x - fb(x)/fpb(x);
+            System.out.println("La " + i + " iteracion se aproxima a " + x);
         }
         System.out.println("La funcion vale 0 en x = " + x);
     }
