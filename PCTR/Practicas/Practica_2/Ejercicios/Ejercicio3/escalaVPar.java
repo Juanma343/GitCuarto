@@ -1,6 +1,7 @@
-import java.util.Scanner;
+import java.lang.Thread;
+//import java.util.Scanner;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+//import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
 
 /**
  * Clase para escalar un vector en de forma paralela, este vector es de se inicializa con su posicion en el vector y se escala por 3, ya que en ninguna parte del codigo te indica por que hay que escalar
@@ -85,9 +86,9 @@ public class escalaVPar extends Thread {
             t3.join();
             t4.join();
             t5.join();
-            System.out.println("Pulse una tecla para el siguiente tamaño");
-            new Scanner(System.in).nextLine();
+            System.out.println("Espera de 5 segundos");
+            sleep(5000);
         }
-        
+        System.out.println("Terminado");
     }
 }
