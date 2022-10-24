@@ -58,15 +58,15 @@ public class escalaVPar extends Thread {
 
     public void run(){
         for (int i = inicial; i< fin; i++){
-            v[i] *= 3;
-            // System.out.println("iteracion " + i + " inicio: " + inicial);
+            v[i] *=(int) Math.pow((1.005), 500000000);
+            // System.out.println("iteracion " + i);
         }
     }
     
     public static void main(String[] args) throws Exception {
         int n = 0;
         int num, div;
-        for(int i = 1; i <= 7; i++){
+        for(int i = 1; i <= 6; i++){
             n = i * 1000000;
             num = 0;
             div = 5;
@@ -86,8 +86,8 @@ public class escalaVPar extends Thread {
             t3.join();
             t4.join();
             t5.join();
-            System.out.println("Espera de 5 segundos");
-            sleep(5000);
+            // System.out.println("Espera de 5 segundos");
+            // sleep(5000);
         }
         System.out.println("Terminado");
     }

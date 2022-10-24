@@ -10,8 +10,11 @@ public class cuentaCorriente {
         this.saldo = saldo;
     }
 
-    public void deposito() {
-
+    public void deposito(double d) {
+        this.saldo += d;
     }
 
+    public void reintegro(double d) {
+        this.saldo -= d;
+    }
 }
