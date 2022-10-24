@@ -1,7 +1,7 @@
 package Ejercicio1;
 import Ejercicio1.Dependencias.hebra;
 /**
- * @deprecated Clase encargada de hejeturar los hilos de la clase hebra
+ * Clase encargada de hejeturar los hilos de la clase hebra
    Simplemenre clea dos hilos, uno del primer tipo, el cual suma la variable estatica,
    y otro del segundo tipo, que la decrementa
    
@@ -10,14 +10,13 @@ import Ejercicio1.Dependencias.hebra;
    ocurre precisamente por que hay trelazado.
  * @see Ejercicos.hebra
  */
-@Deprecated
+
 public class Usa_hebra {
 
     /**
-     * @Deprecatedmetodo proncipal de la calse y de la cual se ejecuta todo el codigo
+     * metodo proncipal de la calse y de la cual se ejecuta todo el codigo
      */
 
-    @Deprecated
     public static void main(String[] args) throws  Exception{
       for(int i = 100; i < 1000000; i*=10){
         hebra p = new  hebra (i , 0);

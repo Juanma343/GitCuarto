@@ -2,14 +2,40 @@ import Dependencias.tareaRunnable;
 
 public class Usa_tareaRunnable implements Runnable {
 
+    /**
+     * Atributo el cual es ejecutado simultaneamente
+     * @see Dependencias.tareaRunnable
+     */
+    
     public static tareaRunnable t = new tareaRunnable();
+
+    /**
+     * atributo que indica si se ejecutara al funcion inc() o dec() de la calse tareaRunable
+     * @see Dependencias.tareaRunnable
+     */
+
     private boolean tipo;
+
+    /**
+     * Atributo que indica el numero de iteraciones del buble
+     */
+
     private int nVuelatas;
+
+    /**
+     * Construcor parametrizado de la clase
+     * @param tip inicializa el atributo tipo del objeto, es decir, si el bucle incrementara n o la decrementara
+     * @param nVuel inicializa el atributo nVueltas de ojeto.
+     */
 
     public Usa_tareaRunnable(boolean tip, int nVuel){
         this.tipo = tip;
         this.nVuelatas = nVuel;
     }
+
+    /**
+     * Metodo sobrescrito de la interfaz implement
+     */
 
     public void run(){
         if(this.tipo){
@@ -23,6 +49,11 @@ public class Usa_tareaRunnable implements Runnable {
             }
         }
     }
+
+    /**
+     * Main del la clase
+     * @throws Exception
+     */
     
     public static void main(String[] args) throws Exception {
         

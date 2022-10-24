@@ -1,11 +1,11 @@
 package Ejercicio1.Dependencias;
 /**
  * Clase hebra del Ejercicio 1
- * @Deprecated se encarga de sumar o retas la variable n segun el parametro tipoHilo
+ * se encarga de sumar o retas la variable n segun el parametro tipoHilo
  * con un extend Thread y sobrescirto la clase run()
  */
 
-@Deprecated
+
 public class hebra extends Thread{
     private  int  tipoHilo;
     public  static  int n=0;
@@ -22,10 +22,9 @@ public class hebra extends Thread{
     }
     
     /**
-     * @Deprecated Funcion que realiza las funcioes del hilo, es uan funcion heredada de a clase Thread
+     * Funcion que realiza las funcioes del hilo, es uan funcion heredada de a clase Thread
      */
 
-    @Deprecated
     public  void  run()
     {
         if(tipoHilo == 0){
