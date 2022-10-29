@@ -11,7 +11,7 @@ public class escalaVector  {
         // Scanner a = new Scanner(System.in);
         int a =(int) Math.pow((1.005), 500000000);
         for (int i = 1; i <= 7; i++){
-            int tVec = i * 1000000;
+            int tVec =(int) (i * Math.pow(10, 6));
             int[] v = new int [tVec];
             for(int j = 0; j < tVec; j++){
                 v[j] = j * a;
