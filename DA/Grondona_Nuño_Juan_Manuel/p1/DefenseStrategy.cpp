@@ -51,32 +51,28 @@ struct celda
 int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
 	, float mapWidth, float mapHeight, List<Object*> obstacles, List<Defense*> defenses) {
     
-    int RadioPiedras = 15;
+    int RadioPiedras = 13;
+    double densidad = 0;
 
     int valor, inter = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
     int distCenWid = fabs(row - ceil(nCellsWidth / 2));
     int distCenHei = fabs(col - ceil(nCellsHeight / 2));
     valor = std::min(inter - distCenHei, inter - distCenWid);
 
-    if (valor > 0){
-        double inicio = 0, fin = 999999999, distancia;
-        int maxva;
+    if (valor > 0 ){
+        double distancia, media = 0;
+        int maxva, aux = 0;
         for (auto it = obstacles.begin(); it != obstacles.end(); it++) {
             distancia = _distance((*it)->position, Vector3((double)row / nCellsWidth * mapWidth, (double)col / nCellsHeight * mapHeight, 0));
             if (distancia <= RadioPiedras) {
-                if (distancia < inicio){
-                    inicio = distancia;
-                }
-                else if (distancia > fin) {
-                    fin = distancia;
-                }
-                maxva += 5;
+                media += distancia;
+                aux++;
             }
         }
-        valor += maxva - maxva * (fin - inicio) / fin;
+        valor += 5 * media / aux;
     
     }
-    return valor; // implemente aqui la funci�n que asigna valores a las celdas
+    return valor;
 }
 
 bool otrasPos(Vector3 pos, List<Defense*> defenses) {
@@ -93,35 +89,19 @@ int cellValueTorretas(int row, int col, bool** freeCells, int nCellsWidth, int n
     
     int valor, rad = 15; // radio de la base inicial en el que no deveria de haber nada
     int maxVal = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
-    Vector3 vec = Vector3((double)row / nCellsWidth * mapWidth, (double)col / nCellsHeight * mapHeight, 0);
-    double dif = _distance(defenses.front()->position, vec);
-    if (dif <= rad) {
-        return 0;
-    }
-    else if(otrasPos(vec, defenses)){
-        return 0;
-    }
-    else {
-        return maxVal - floor(dif * (nCellsHeight / mapHeight));
-    }
-}
-
-bool otrasPos(Object *defensa, Vector3 pos, List<Defense*> defenses) {
-    for (auto it = defenses.begin(); it != defenses.end(); it++){
-        if (distObjeRad(pos, defensa->radio, (*it)->position, (*it)->radio) <= defensa->radio) {
-            return true;
-        }
-    }
-    return false;
+    int distCenWid = fabs(row - defenses.front()->position.x / (mapWidth / nCellsWidth) );
+    int distCenHei = fabs(col - defenses.front()->position.y / (mapHeight / nCellsHeight) );
+    valor = std::min(maxVal - distCenHei, maxVal - distCenWid);
+    return valor;
 }
 
 bool factible(Object* defensa, celda *cell, float mapWidth, float mapHeight, List<Object*> obstacles, List<Defense*> defenses) {
     bool res = true;
-    if ((30 >= cell->posicion.x || cell->posicion.x >= mapWidth - 30) || (30 >= cell->posicion.y || cell->posicion.y >= mapHeight - 30) ) {
+    if ((defensa->radio >= cell->posicion.x || cell->posicion.x >= mapWidth - defensa->radio) || (defensa->radio >= cell->posicion.y || cell->posicion.y >= mapHeight - defensa->radio) ) {
         res = false;
     }
     for (auto it = obstacles.begin(); it != obstacles.end() && res; it++){
-        if (distObjeRad(cell->posicion, defensa->radio, (*it)->position, (*it)->radio) <= 0) {
+        if (distObjeRad(cell->posicion, defensa->radio, (*it)->position, (*it)->radio) <= 5) {
             res = false;
         }
     }

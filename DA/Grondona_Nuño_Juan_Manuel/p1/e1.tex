@@ -1,5 +1,11 @@
-Escriba aquí su respuesta al ejercicio 1. 
+En este caso la funcion se divide en dos partes. 
+\begin{itemize}
+    \item Valoracion por lo centrado que este en el tablero.
+    \item Valoracion por lo centrado que este con respecto el numero de obstaculos alrededor.
+\end{itemize}
+Para el primer tipo, doy una valoracion positiba a la celda central, y voy disminuyendo segun se aleje. La valoracion mas alta de de las celdas es el de minimo ente la logitud y la altutud del mapa dividada ente 3, de este modo de genera un "cuadrado" entorno a esta celda central y despues de 0, otroga valores negativos.
 
+Para la segunda parte de la valoracion, comprobamos alredeor de la celda, cuantos obstaculos hay cerca, cuantos mas, mayor valor maximo puede adoptar la casilla, posteriormente miro la diferencia ente el obstaculo as cercano y el obstaculo mas lejano, y en funsion de lo grande que sea la diferecia se llevara o la maxima puntuacion o por el contrario 0, de esta manera me encargo a rasgos generales de que se situe en el centro de estas puedras.
 % Elimine los símbolos de tanto por ciento para descomentar las siguientes instrucciones e incluir una imagen en su respuesta. La mejor ubicación de la imagen será determinada por el compilador de Latex. No tiene por qué situarse a continuación en el fichero en formato pdf resultante.
 %\begin{figure}
 %\centering
