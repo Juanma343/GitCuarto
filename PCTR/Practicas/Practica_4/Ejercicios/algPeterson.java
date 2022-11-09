@@ -16,7 +16,10 @@ class hilos4{
      */
 
     public static volatile int n = 0;
-    public static int nVueltas = 10000;
+
+    /**
+     * clase del tipo de hebra p, la cual tiene el metodo run sobrecargado con el algoritmo de dekker. utiliza el extend de la calse thread.
+     */
 
     class p implements Runnable {
         public void run(){
@@ -30,6 +33,10 @@ class hilos4{
             }
         }
     }
+
+    /**
+     * clase del tipo de hebra q, la cual tiene el metodo run sobrecargado con el algoritmo de dekker. utiliza el extend de la calse thread.
+     */
 
     class q implements Runnable {
         public void run(){

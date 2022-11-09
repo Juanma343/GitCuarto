@@ -1,3 +1,6 @@
+/**
+ * clase que se ecarga de las hebras del programa
+ */
 
 class hilos3{
 
@@ -14,6 +17,10 @@ class hilos3{
      */
 
     public static volatile int n = 0;
+
+    /**
+     * clase del tipo de hebra p, la cual tiene el metodo run sobrecargado con el algoritmo de dekker. utiliza el extend de la calse thread.
+     */
 
     class p extends Thread{
         public void run(){
@@ -33,6 +40,10 @@ class hilos3{
             }
         }
     }
+    
+    /**
+     * clase del tipo de hebra q, la cual tiene el metodo run sobrecargado con el algoritmo de dekker. utiliza el extend de la calse thread.
+     */
 
     class q extends Thread{
         public void run(){
