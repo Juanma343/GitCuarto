@@ -1,11 +1,14 @@
-En este caso la funcion se divide en dos partes. 
+En este caso la función se divide en dos partes.
 \begin{itemize}
-    \item Valoracion por lo centrado que este en el tablero.
-    \item Valoracion por lo centrado que este con respecto el numero de obstaculos alrededor.
+    \item Valoracion por lo centrado que esté en el tablero.
+    \item Valoracion por lo centrado que esté con respecto el número de obstáculos alrededor.
 \end{itemize}
-Para el primer tipo, doy una valoracion positiba a la celda central, y voy disminuyendo segun se aleje. La valoracion mas alta de de las celdas es el de minimo ente la logitud y la altutud del mapa dividada ente 3, de este modo de genera un "cuadrado" entorno a esta celda central y despues de 0, otroga valores negativos.
+Para el primer tipo, doy una valoración positiva a la celda central, y voy disminuyendo según se aleje. La valoración más alta de las celdas es el de mínimo ente la longitud y la altitud del mapa dividida ente 3, de este modo se genera un "cuadrado" en torno a esta celda central y después de 0, otorga valores negativos.
 
-Para la segunda parte de la valoracion, comprobamos alredeor de la celda, cuantos obstaculos hay cerca, cuantos mas, mayor valor maximo puede adoptar la casilla, posteriormente miro la diferencia ente el obstaculo as cercano y el obstaculo mas lejano, y en funsion de lo grande que sea la diferecia se llevara o la maxima puntuacion o por el contrario 0, de esta manera me encargo a rasgos generales de que se situe en el centro de estas puedras.
+Para la segunda parte de la valoración, comprobamos alrededor de la celda, los obstáculos que hay, después esta se valora según la media de estas rocas, cuanto mayor sea esta, mejor puntuación, ya que con un mayor media existe una mayor distancia entre estas, y de esta forma se puede posicionar bien la torreta principal.
+
+Además, según el tamaño del mapa, el valor máximo que pueden aportas estos se ven modificados, de esta manera podemos encontrar la posición más segura que puede estar más alejada.
+
 % Elimine los símbolos de tanto por ciento para descomentar las siguientes instrucciones e incluir una imagen en su respuesta. La mejor ubicación de la imagen será determinada por el compilador de Latex. No tiene por qué situarse a continuación en el fichero en formato pdf resultante.
 %\begin{figure}
 %\centering

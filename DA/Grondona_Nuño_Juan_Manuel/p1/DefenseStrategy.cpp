@@ -54,7 +54,14 @@ int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
     int RadioPiedras = 13;
     double densidad = 0;
 
-    int valor, inter = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
+    int valor, inter;
+    if (nCellsHeight <= 24 || nCellsWidth <= 24){
+        inter = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
+    }
+    else {
+        inter = std::min(ceil(nCellsWidth / 2), ceil(nCellsHeight / 2));
+    }
+
     int distCenWid = fabs(row - ceil(nCellsWidth / 2));
     int distCenHei = fabs(col - ceil(nCellsHeight / 2));
     valor = std::min(inter - distCenHei, inter - distCenWid);
@@ -69,19 +76,10 @@ int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
                 aux++;
             }
         }
-        valor += 5 * media / aux;
+        valor += inter * media / aux;
     
     }
     return valor;
-}
-
-bool otrasPos(Vector3 pos, List<Defense*> defenses) {
-    for (auto it = defenses.begin(); it != defenses.end(); it++){
-        if (_distance(pos, (*it)->position) <= (*it)->radio) {
-            return true;
-        }
-    }
-    return false;
 }
 
 int cellValueTorretas(int row, int col, bool** freeCells, int nCellsWidth, int nCellsHeight
