@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1668104723 "/home/juanma/git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p1/p1.tex" "p1.pdf" "p1" 1668104723
+["pdflatex"] 1668156774 "/home/juanma/git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p1/p1.tex" "p1.pdf" "p1" 1668156774
   "../autor.tex" 1665504072 376 814ce879b2976562adddebc8d23d7043 ""
   "/etc/texmf/web2c/texmf.cnf" 1663164381 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/juanma/git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p1/p1.tex" 1637832365 3093 9247611cb0005a82a6edf63af55dedce ""
@@ -51,12 +51,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1665505704 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1665505787 2800842 5073714482a903bda00adeafc730c92d ""
   "e1.tex" 1668104722 1658 e0c471b847a9db2ed0e33aa6b2ec95fa ""
-  "e2.tex" 1668103469 409 4a8d78f45f51d282d36b501596b12ba3 ""
-  "e3.tex" 1637832365 392 e9cd501b5efca9c0a2d1619015cde3e5 ""
-  "e4.tex" 1637832365 42 9dce9acf9ef8345fe107a98ebbce5691 ""
-  "e5.tex" 1637832365 42 54fb45bb1d309b92a5c1c8cba79806ab ""
-  "e6.tex" 1637832365 392 e9cd501b5efca9c0a2d1619015cde3e5 ""
-  "p1.aux" 1668104723 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "e2.tex" 1668156773 412 3d10754c4ddf0fd9ecfbf1ab4841628b ""
+  "e3.tex" 1668156365 3553 19949afb08258413ffa1689395b1cdfd ""
+  "e4.tex" 1668153918 901 6e9d32882ac5fb01da434414e14be188 ""
+  "e5.tex" 1668154385 402 966d62a3a63da6ee45d28d57d78f5d1c ""
+  "e6.tex" 1668156527 3645 6b59e497079e52206528c9cb2504ab69 ""
+  "p1.aux" 1668156774 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "p1.tex" 1637832365 3093 9247611cb0005a82a6edf63af55dedce ""
   (generated)
   "p1.aux"

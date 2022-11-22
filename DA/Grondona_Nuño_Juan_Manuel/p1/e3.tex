@@ -1,13 +1,103 @@
 \begin{lstlisting}
-// sustituya este codigo por su respuesta
-void placeDefenses(...) {
+struct celda{
+    int x_;
+    int y_;
+    int valor;
+    Vector3 posicion;
 
-    List<Defense*>::iterator currentDefense = defenses.begin();
-    while(currentDefense != defenses.end() && maxAttemps > 0) {
-
-        (*currentDefense)->position.x = ((int)(_RAND2(nCellsWidth))) * cellWidth + cellWidth * 0.5f;
-        ...
-        ++currentDefense;
+    celda(int x, int y, int val, double cellW, double cellH): x_(x), y_(y), valor(val){
+        posicion = Vector3(x * cellH + cellH * 0.5f, y * cellW + cellW * 0.5f, 0);
     }
+};
+
+// funcion que valorea las celdas
+
+int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
+	, float mapWidth, float mapHeight, List<Object*> obstacles, List<Defense*> defenses) {
+    
+    int RadioPiedras = 13;
+    double densidad = 0;
+
+    int valor, inter;
+    if (nCellsHeight <= 24 || nCellsWidth <= 24){
+        inter = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
+    }
+    else {
+        inter = std::min(ceil(nCellsWidth / 2), ceil(nCellsHeight / 2));
+    }
+
+    int distCenWid = fabs(row - ceil(nCellsHeight / 2));
+    int distCenHei = fabs(col - ceil(nCellsWidth / 2));
+    valor = std::min(inter - distCenHei, inter - distCenWid);
+
+    if (valor > 0 ){
+        double distancia, media = 0;
+        int maxva, aux = 0;
+        for (auto it = obstacles.begin(); it != obstacles.end(); it++) {
+            distancia = _distance((*it)->position, Vector3((double)row / nCellsHeight * mapHeight, (double)col / nCellsWidth * mapWidth, 0));
+            if (distancia <= RadioPiedras) {
+                media += distancia;
+                aux++;
+            }
+        }
+        valor += inter * media / aux;
+    
+    }
+    return valor;
+}
+
+//funcion que considera posible esa celda
+
+bool factible(Object* defensa, celda *cell, float mapWidth, float mapHeight, List<Object*> obstacles, List<Defense*> defenses) {
+    bool res = true;
+    if ((defensa->radio >= cell->posicion.x || cell->posicion.x >= mapWidth - defensa->radio) || (defensa->radio >= cell->posicion.y || cell->posicion.y >= mapHeight - defensa->radio) ) {
+        res = false;
+    }
+    for (auto it = obstacles.begin(); it != obstacles.end() && res; it++){
+        if (distObjeRad(cell->posicion, defensa->radio, (*it)->position, (*it)->radio) <= 5) {
+            res = false;
+        }
+    }
+    for (auto it = defenses.begin(); it != defenses.end() && res; it++){
+        if (distObjeRad(cell->posicion, defensa->radio, (*it)->position, (*it)->radio) <= 0) {
+            
+            res = false;
+        }
+        
+    }
+    return res;   
+}
+
+//algoritmo devorador
+
+void colocaBase(bool** freeCells, int nCellsWidth, int nCellsHeight, float mapWidth, float mapHeight
+    , std::list<Object*> obstacles, std::list<Defense*> defenses){
+
+    float cellWidth = mapWidth / nCellsWidth;
+    float cellHeight = mapHeight / nCellsHeight; 
+
+    std::list<celda*> valoresbase;
+    for(int i = 0; i < nCellsHeight; ++i) {
+        for(int j = 0; j < nCellsWidth; ++j) {
+            valoresbase.push_back(new celda(i, j, cellValueBase(i, j, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses), cellWidth, cellHeight));
+        }
+    }
+    valoresbase.sort([](celda* a, celda* b) -> bool{return a->valor > b->valor;});
+
+    std::list<Defense*> posicionadas;
+    auto defAct = defenses.begin();
+    auto cellAct = valoresbase.begin();
+    bool fin = true;
+    while (cellAct != valoresbase.end() && fin){
+        if (factible(*defAct, (*cellAct), mapWidth, mapHeight, obstacles, defenses)){
+            (*defAct)->position = (*cellAct)->posicion;
+            fin = false;
+            defAct++;
+        }
+        else{
+            cellAct++;
+        }
+    }
+
 }
 \end{lstlisting}

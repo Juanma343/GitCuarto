@@ -35,17 +35,16 @@ float distObjeRad(Vector3 posicion1, float radio1, Vector3 posicion2, float radi
     }
 }
 
-struct celda
-    {
-        int x_;
-        int y_;
-        int valor;
-        Vector3 posicion;
+struct celda{
+    int x_;
+    int y_;
+    int valor;
+    Vector3 posicion;
 
-        celda(int x, int y, int val, double cellW, double cellH): x_(x), y_(y), valor(val){
-            posicion = Vector3(x * cellW + cellW * 0.5f, y * cellH + cellH * 0.5f, 0);
-        }
-    };
+    celda(int x, int y, int val, double cellW, double cellH): x_(x), y_(y), valor(val){
+        posicion = Vector3(x * cellH + cellH * 0.5f, y * cellW + cellW * 0.5f, 0);
+    }
+};
 
 
 int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
@@ -62,15 +61,15 @@ int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
         inter = std::min(ceil(nCellsWidth / 2), ceil(nCellsHeight / 2));
     }
 
-    int distCenWid = fabs(row - ceil(nCellsWidth / 2));
-    int distCenHei = fabs(col - ceil(nCellsHeight / 2));
+    int distCenWid = fabs(row - ceil(nCellsHeight / 2));
+    int distCenHei = fabs(col - ceil(nCellsWidth / 2));
     valor = std::min(inter - distCenHei, inter - distCenWid);
 
     if (valor > 0 ){
         double distancia, media = 0;
         int maxva, aux = 0;
         for (auto it = obstacles.begin(); it != obstacles.end(); it++) {
-            distancia = _distance((*it)->position, Vector3((double)row / nCellsWidth * mapWidth, (double)col / nCellsHeight * mapHeight, 0));
+            distancia = _distance((*it)->position, Vector3((double)row / nCellsHeight * mapHeight, (double)col / nCellsWidth * mapWidth, 0));
             if (distancia <= RadioPiedras) {
                 media += distancia;
                 aux++;
@@ -85,10 +84,10 @@ int cellValueBase(int row, int col, int nCellsWidth, int nCellsHeight
 int cellValueTorretas(int row, int col, bool** freeCells, int nCellsWidth, int nCellsHeight
 	, float mapWidth, float mapHeight, List<Object*> obstacles, List<Defense*> defenses) {
     
-    int valor, rad = 15; // radio de la base inicial en el que no deveria de haber nada
+    int valor;
     int maxVal = std::min(ceil(nCellsWidth / 3), ceil(nCellsHeight / 3));
-    int distCenWid = fabs(row - defenses.front()->position.x / (mapWidth / nCellsWidth) );
-    int distCenHei = fabs(col - defenses.front()->position.y / (mapHeight / nCellsHeight) );
+    int distCenWid = fabs(row - defenses.front()->position.x / (mapHeight / nCellsHeight) );
+    int distCenHei = fabs(col - defenses.front()->position.y / (mapWidth / nCellsWidth) );
     valor = std::min(maxVal - distCenHei, maxVal - distCenWid);
     return valor;
 }
@@ -113,8 +112,8 @@ bool factible(Object* defensa, celda *cell, float mapWidth, float mapHeight, Lis
     return res;   
 }
 
-void DEF_LIB_EXPORTED placeDefenses(bool** freeCells, int nCellsWidth, int nCellsHeight, float mapWidth, float mapHeight
-              , std::list<Object*> obstacles, std::list<Defense*> defenses) {
+void colocaBase(bool** freeCells, int nCellsWidth, int nCellsHeight, float mapWidth, float mapHeight
+              , std::list<Object*> obstacles, std::list<Defense*> defenses){
 
     float cellWidth = mapWidth / nCellsWidth;
     float cellHeight = mapHeight / nCellsHeight; 
@@ -142,6 +141,14 @@ void DEF_LIB_EXPORTED placeDefenses(bool** freeCells, int nCellsWidth, int nCell
         }
     }
 
+}
+
+void colocaTorre(bool** freeCells, int nCellsWidth, int nCellsHeight, float mapWidth, float mapHeight
+              , std::list<Object*> obstacles, std::list<Defense*> defenses){
+
+    float cellWidth = mapWidth / nCellsWidth;
+    float cellHeight = mapHeight / nCellsHeight; 
+
     std::list<celda*> valorestorre;
     for(int i = 0; i < nCellsHeight; ++i) {
        for(int j = 0; j < nCellsWidth; ++j) {
@@ -150,6 +157,7 @@ void DEF_LIB_EXPORTED placeDefenses(bool** freeCells, int nCellsWidth, int nCell
     }
     valorestorre.sort([](celda* a, celda* b) -> bool{return a->valor > b->valor;});
 
+    auto defAct = ++defenses.begin();
     auto cellAct1 = valorestorre.begin();
     bool fin1 = true;
     while (defAct != defenses.end()){
@@ -167,6 +175,18 @@ void DEF_LIB_EXPORTED placeDefenses(bool** freeCells, int nCellsWidth, int nCell
         fin1 = true;
         defAct++;
     }
+}
+
+void DEF_LIB_EXPORTED placeDefenses(bool** freeCells, int nCellsWidth, int nCellsHeight, float mapWidth, float mapHeight
+              , std::list<Object*> obstacles, std::list<Defense*> defenses) {
+
+    float cellWidth = mapWidth / nCellsWidth;
+    float cellHeight = mapHeight / nCellsHeight; 
+    
+    colocaBase(freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
+
+    colocaTorre(freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
+
 }
 
 
