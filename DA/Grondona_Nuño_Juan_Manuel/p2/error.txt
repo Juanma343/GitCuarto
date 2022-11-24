@@ -1,0 +1,189 @@
+./../simulador/simulador -l 3324 -v
+Difficulty: 324
+Map size: 400
+Cells width: 40
+Cells height: 40
+Obstacles: 25
+Defenses: 25
+Defenses types: 6
+Defenses randomness: 0.1
+Defense strategy: EXTERNAL
+Units: 2147483647
+Max play time: 600
+Random seed: 324
+Obstacle 0 with radio 16.4781 created at (383.57, 126.268, 0)
+Obstacle 1 with radio 23.8052 created at (253.791, 272.331, 0)
+Obstacle 2 with radio 27.2683 created at (227.673, 351.947, 0)
+Obstacle 3 with radio 16.9704 created at (377.754, 301.708, 0)
+Obstacle 4 with radio 19.5061 created at (24.5369, 249.471, 0)
+Obstacle 5 with radio 16.9576 created at (367.929, 213.409, 0)
+Obstacle 6 with radio 20.7762 created at (230.658, 171.509, 0)
+Obstacle 7 with radio 28.8494 created at (288.617, 30.3567, 0)
+Obstacle 8 with radio 16.812 created at (256.291, 113.402, 0)
+Obstacle 9 with radio 23.4154 created at (336.651, 41.3425, 0)
+Obstacle 10 with radio 21.4065 created at (329.562, 241.969, 0)
+Obstacle 11 with radio 22.1466 created at (133.349, 87.1625, 0)
+Obstacle 12 with radio 17.4143 created at (334.801, 60.861, 0)
+Obstacle 13 with radio 21.0868 created at (87.2222, 310.898, 0)
+Obstacle 14 with radio 29.1659 created at (152.615, 34.42, 0)
+Obstacle 15 with radio 21.3602 created at (294.521, 157.004, 0)
+Obstacle 16 with radio 26.1924 created at (170.424, 185.331, 0)
+Obstacle 17 with radio 26.5597 created at (71.5678, 170.467, 0)
+Obstacle 18 with radio 23.3943 created at (320.778, 140.807, 0)
+Obstacle 19 with radio 20.2788 created at (232.396, 112.423, 0)
+Obstacle 20 with radio 19.1832 created at (159.095, 392.011, 0)
+Obstacle 21 with radio 20.5444 created at (54.6675, 135.613, 0)
+Obstacle 22 with radio 16.4451 created at (358.27, 118.07, 0)
+Obstacle 23 with radio 27.8473 created at (286.703, 77.7684, 0)
+Obstacle 24 with radio 15.3481 created at (283.544, 47.5659, 0)
+Available defenses:
+Defense 0 [rad=4.98829, ran=29.1141, da=4.58187, aps=1.00902, h=514.848, c=100]
+Defense 1 [rad=4.98829, ran=29.1141, da=4.58187, aps=1.00902, h=514.848, c=100]
+Defense 2 [rad=4.98829, ran=29.1141, da=4.58187, aps=1.00902, h=514.848, c=100]
+Defense 3 [rad=4.98829, ran=29.1141, da=4.58187, aps=1.00902, h=514.848, c=100]
+Defense 4 [rad=4.63869, ran=32.0418, da=4.74031, aps=1.05833, h=475.131, c=100]
+Defense 5 [rad=4.63869, ran=32.0418, da=4.74031, aps=1.05833, h=475.131, c=100]
+Defense 6 [rad=4.63869, ran=32.0418, da=4.74031, aps=1.05833, h=475.131, c=100]
+Defense 7 [rad=4.63869, ran=32.0418, da=4.74031, aps=1.05833, h=475.131, c=100]
+Defense 8 [rad=4.63234, ran=27.185, da=5.22646, aps=0.941418, h=528.833, c=98]
+Defense 9 [rad=4.63234, ran=27.185, da=5.22646, aps=0.941418, h=528.833, c=98]
+Defense 10 [rad=4.63234, ran=27.185, da=5.22646, aps=0.941418, h=528.833, c=98]
+Defense 11 [rad=4.63234, ran=27.185, da=5.22646, aps=0.941418, h=528.833, c=98]
+Defense 12 [rad=5.40629, ran=31.8745, da=4.64947, aps=1.00339, h=499.308, c=95]
+Defense 13 [rad=5.40629, ran=31.8745, da=4.64947, aps=1.00339, h=499.308, c=95]
+Defense 14 [rad=5.40629, ran=31.8745, da=4.64947, aps=1.00339, h=499.308, c=95]
+Defense 15 [rad=5.40629, ran=31.8745, da=4.64947, aps=1.00339, h=499.308, c=95]
+Defense 16 [rad=5.44934, ran=30.1247, da=5.17123, aps=1.07285, h=457.383, c=105]
+Defense 17 [rad=5.44934, ran=30.1247, da=5.17123, aps=1.07285, h=457.383, c=105]
+Defense 18 [rad=5.44934, ran=30.1247, da=5.17123, aps=1.07285, h=457.383, c=105]
+Defense 19 [rad=5.44934, ran=30.1247, da=5.17123, aps=1.07285, h=457.383, c=105]
+Defense 20 [rad=5.48085, ran=30.4524, da=5.33609, aps=1.08369, h=494.783, c=101]
+Defense 21 [rad=5.48085, ran=30.4524, da=5.33609, aps=1.08369, h=494.783, c=101]
+Defense 22 [rad=5.48085, ran=30.4524, da=5.33609, aps=1.08369, h=494.783, c=101]
+Defense 23 [rad=5.48085, ran=30.4524, da=5.33609, aps=1.08369, h=494.783, c=101]
+Defense 24 [rad=4.57588, ran=31.3478, da=4.63942, aps=1.06366, h=495.159, c=100]
+Total cost: 2496
+123.066--123.066
+123.066--118.361
+118.361--113.656
+113.656--108.951
+108.951--103.455
+103.455--97.9595
+97.9595--92.4638
+92.4638--87.3313
+87.3313--82.1988
+82.1988--77.0663
+77.0663--71.9339
+71.9339--66.2007
+66.2007--60.4675
+60.4675--54.7343
+54.7343--49.0011
+49.0011--43.3498
+43.3498--37.6985
+37.6985--32.0472
+32.0472--26.3959
+26.3959--21.1279
+21.1279--15.8599
+15.8599--10.5919
+10.5919--5.32394
+Ases: 2476
+Placed defenses:
+Defense 0 with radio 4.98829 created at (315, 95, 0)
+Defense 1 with radio 4.98829 created at (315, 105, 0)
+Defense 2 with radio 4.98829 created at (325, 95, 0)
+Defense 3 with radio 4.98829 created at (325, 105, 0)
+Defense 4 with radio 4.63869 created at (305, 105, 0)
+Defense 5 with radio 4.63869 created at (325, 85, 0)
+Defense 6 with radio 4.63869 created at (335, 95, 0)
+Defense 7 with radio 4.63869 created at (305, 115, 0)
+Defense 8 with radio 4.63234 created at (335, 105, 0)
+Defense 9 with radio 4.63234 created at (335, 85, 0)
+Defense 10 with radio 4.63234 created at (335, 115, 0)
+Defense 11 with radio 4.63234 created at (295, 115, 0)
+Defense 12 with radio 5.40629 created at (355, 95, 0)
+Defense 13 with radio 5.40629 created at (285, 125, 0)
+Defense 14 with radio 5.40629 created at (355, 75, 0)
+Defense 15 with radio 5.40629 created at (275, 135, 0)
+Defense 17 with radio 5.44934 created at (355, 145, 0)
+Defense 18 with radio 5.44934 created at (255, 65, 0)
+Defense 19 with radio 5.44934 created at (245, 85, 0)
+Defense 20 with radio 5.48085 created at (265, 145, 0)
+Defense 21 with radio 5.48085 created at (345, 165, 0)
+Defense 22 with radio 5.48085 created at (255, 45, 0)
+Defense 23 with radio 5.48085 created at (315, 175, 0)
+0.10	Unit 0 spawn at (239.06, 390.00)
+2.60	Unit 1 spawn at (10.00, 195.14)
+5.10	Unit 2 spawn at (390.00, 188.14)
+7.60	Unit 3 spawn at (10.00, 340.52)
+10.10	Unit 4 spawn at (10.00, 309.32)
+12.60	Unit 5 spawn at (390.00, 347.91)
+15.10	Unit 6 spawn at (78.20, 390.00)
+15.70	Unit 2 killed at (325.69, 185.03)
+17.60	Unit 7 spawn at (202.91, 10.00)
+20.10	Unit 8 spawn at (10.00, 334.55)
+22.60	Unit 9 spawn at (390.00, 251.14)
+25.10	Unit 10 spawn at (10.00, 46.38)
+27.60	Unit 11 spawn at (57.57, 390.00)
+30.10	Unit 12 spawn at (255.13, 390.00)
+30.50	Unit 1 killed at (251.46, 145.04)
+32.60	Unit 13 spawn at (218.79, 10.00)
+35.10	Unit 14 spawn at (191.11, 10.00)
+35.40	Defense 20 destroyed
+37.60	Unit 15 spawn at (353.95, 10.00)
+40.10	Unit 16 spawn at (10.00, 231.95)
+40.90	Unit 7 killed at (260.62, 131.92)
+42.60	Unit 17 spawn at (390.00, 253.54)
+45.10	Unit 18 spawn at (10.00, 308.09)
+45.30	Unit 9 killed at (317.23, 189.77)
+47.30	Defense 15 destroyed
+47.60	Unit 19 spawn at (390.00, 380.95)
+50.10	Unit 20 spawn at (212.97, 10.00)
+51.90	Unit 15 killed at (364.73, 65.05)
+52.60	Unit 21 spawn at (10.00, 268.69)
+55.10	Unit 22 spawn at (256.29, 10.00)
+57.60	Unit 23 spawn at (123.10, 10.00)
+59.50	Defense 13 destroyed
+60.10	Unit 24 spawn at (327.13, 390.00)
+62.60	Unit 25 spawn at (10.00, 38.02)
+64.60	Unit 17 killed at (317.08, 189.65)
+65.10	Unit 26 spawn at (10.00, 138.57)
+67.60	Unit 27 spawn at (10.00, 187.74)
+68.50	Defense 11 destroyed
+69.00	Unit 8 killed at (292.47, 121.83)
+70.10	Unit 28 spawn at (10.00, 365.46)
+72.60	Unit 29 spawn at (10.00, 331.47)
+73.40	Unit 13 killed at (291.35, 110.62)
+73.40	Unit 10 killed at (291.53, 110.55)
+75.10	Unit 30 spawn at (390.00, 274.91)
+75.60	Unit 14 killed at (291.30, 110.77)
+76.00	Defense 7 destroyed
+77.60	Unit 31 spawn at (198.60, 10.00)
+79.30	Unit 3 killed at (292.65, 110.69)
+79.30	Unit 11 killed at (292.58, 110.59)
+80.10	Unit 32 spawn at (260.17, 390.00)
+81.30	Unit 4 killed at (292.39, 110.99)
+82.30	Unit 6 killed at (292.25, 111.18)
+82.60	Unit 33 spawn at (390.00, 191.08)
+83.30	Unit 0 killed at (292.29, 111.15)
+85.10	Unit 34 spawn at (333.06, 10.00)
+85.10	Unit 5 killed at (292.43, 111.04)
+85.20	Defense 4 destroyed
+86.30	Unit 16 killed at (301.20, 105.33)
+87.60	Unit 35 spawn at (390.00, 54.43)
+88.30	Unit 22 killed at (300.89, 106.05)
+88.30	Unit 20 killed at (301.14, 106.10)
+90.10	Unit 36 spawn at (390.00, 85.06)
+92.60	Unit 37 spawn at (294.76, 390.00)
+93.30	Unit 33 killed at (325.22, 185.09)
+93.60	Unit 27 killed at (301.11, 104.88)
+95.10	Unit 38 spawn at (257.42, 390.00)
+96.00	Defense 1 destroyed
+97.20	Unit 12 killed at (304.28, 103.44)
+97.60	Unit 39 spawn at (390.00, 376.08)
+100.10	Unit 40 spawn at (386.88, 390.00)
+101.20	Unit 30 killed at (306.38, 106.98)
+102.10	Unit 21 killed at (304.83, 103.95)
+102.60	Unit 41 spawn at (229.37, 390.00)
+105.10	Unit 42 spawn at (215.18, 10.00)
+105.50	Defense 0 destroyed
+105.50	Base raided!

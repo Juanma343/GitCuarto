@@ -2,6 +2,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Clase por la cunal, pese este sincronizada, se prooducen interbloqueo entre enllas.
+ */
+
 public class deadlock implements Runnable{
 
     public static Object lock1 = new Object();
@@ -10,10 +14,20 @@ public class deadlock implements Runnable{
     private Object fir;
     private Object sec;
 
+    /**
+     * Constructor de la clase parametrizado, al que se le pasan dos cerrojos.
+     * @param a
+     * @param b
+     */
+
     public deadlock(Object a, Object b){
         fir = a;
         sec = b;
     }
+
+    /**
+     * mMetodo sobrecargado de la calse runnable.
+     */
 
     public void run(){
         synchronized(fir){

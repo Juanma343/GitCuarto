@@ -7,6 +7,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Clase que guarda una posicion.
+ */
+
 class posicion{
     public double x;
     public double y;
@@ -17,7 +21,15 @@ class posicion{
     }
 }
 
+/**
+ * clase que calcula la integral
+ */
+
 public class integCallable implements Callable<posicion> {
+
+    /**
+     * clase que devuelve una posicion.
+     */
 
     public posicion call(){
         return new posicion((Math.random()),(Math.random()));

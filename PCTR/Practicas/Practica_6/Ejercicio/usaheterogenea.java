@@ -1,16 +1,27 @@
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+/**
+ * clase encargada de realizar el ejercicio
+ */
 
 public class usaheterogenea implements Runnable {
     
     public static heterogenea obj = new heterogenea();
 
+    /**
+     * metodo sobrecargado de la clase runnable
+     */
+
     public void run(){
         obj.incM();
         obj.incN();
     }
+
+    /**
+     * metodo que muestra el contenido de n y M
+     */
 
     public static void imprimir(){
         System.out.println("n = " + obj.n + "\nm = " + obj.m);
