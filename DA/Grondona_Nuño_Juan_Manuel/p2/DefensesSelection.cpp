@@ -32,7 +32,6 @@ void valorar (std::list<Defense*> Defensas, int* p, int* id, float* v){
     //ordenar lista
 
     int k = i, max = 0, imax = 0;
-    std::list<Defense*> lis2;
     auto it = Defensas.begin();
     for(int k = 1; k <= i; k++){
         it = ++Defensas.begin();
@@ -79,8 +78,6 @@ void DEF_LIB_EXPORTED selectDefenses(std::list<Defense*> defenses, unsigned int 
        tabla[i] = new float[ases+1];
     }
 
-    // std::cout << coste[3] << "--" << id[3] << "--" << valor[3] << std::endl;
-
     //algoritmo mochila
     for (int j = 1; j <= cost; j++){
         if (j < coste[1]){
@@ -98,13 +95,8 @@ void DEF_LIB_EXPORTED selectDefenses(std::list<Defense*> defenses, unsigned int 
             else{
                 tabla[i][j] = std::max(tabla[i-1][j], tabla[i-1][j-coste[i]] + valor[i]);
             }
-            // std::cout << tabla[i][j] << "--" << std::ends;
         }
-        // std::cout << std::endl;
-
     }
-            // std::cout << tabla[20][cost] << "--" << std::endl;
-
     
     //recuperar
     

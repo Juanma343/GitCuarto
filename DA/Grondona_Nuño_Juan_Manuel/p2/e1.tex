@@ -1,3 +1,4 @@
-$$ f(radio,rango,salud)=(radio+rango)-1+rango^2+3\frac{radio}{salud} $$
+$$ f(damage, ataques por segundo, rango, dispersion, salud, coste) = $$
+$$3 \cdot \frac{damage \cdot ataques por segundo}{coste} + 6 \cdot \frac{dispersion}{coste} + 6 \cdot \frac{rango}{coste} + \frac{salud}{coste} $$
 
-Escriba aquí su respuesta al ejercicio 1.
+Esta fórmula suma las diferentes propiedades relativas a su coste, es decir, calcula una característica como pondría ser la salud, y la divide por su coste, y de este modo podemos ver quien nos da más salud relativo al coste, y así con todas las características y después se suman. Estas características están ponderadas, es decir, que tiene un factor multiplicativo en cada una, estas están ahí para dar más importancia a una característica que a otra, de este modo tendremos la mejor torreta relación calidad precio. Esto lo calculamos de esta manera a causa de que el dinero es un factor limitante en el número posterior de torretas, por lo que es mejor usar las mejores y más baratas para usar más torretas, mejor que pocas con un poco de más daño.
