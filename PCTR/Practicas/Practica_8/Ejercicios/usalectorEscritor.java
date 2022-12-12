@@ -4,20 +4,27 @@ public class usalectorEscritor extends Thread {
     private static long data = 0;
     private int tipo = 0;
 
+    /**
+     * constructor de la clase usalectorescrutor
+     * @param i indica si el hilo es de escritura o de lectura
+     */
+
     public usalectorEscritor(int i){
         tipo = i;
     }
 
+    
+
     public void run(){
         switch(tipo){
-            case 2: 
+            case 1: 
                 for(long i = 0; i < 1000000; i++){
                     lec.iniciaLectura();
                     data = rec.observar();
                     lec.acabarLectura();
                 }
             break;
-            case 1: 
+            case 2: 
                 for(long i = 0; i < 1000000; i++){
                     lec.iniciaEscritura();
                     rec.inc();
@@ -36,7 +43,8 @@ public class usalectorEscritor extends Thread {
         for (int i = 0; i < 4; i++){
             vect[i].join();
         }
-        System.out.println(data);
+
+        System.out.println(rec.observar());
     }
     
 }

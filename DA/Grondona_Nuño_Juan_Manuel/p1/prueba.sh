@@ -4,5 +4,5 @@ for j in "${niveles[@]}"
 do
     echo $j
     ../simulador/simulador -level $j -replay replay.txt
-    #./../visor/bin/lin/asedio_player.x86_64 -replay replay.txt
+    ./../visor/bin/lin/asedio_player.x86_64 -replay replay.txt
 done
