@@ -12,7 +12,6 @@ void copia(int* des, int* ori, int n){
 
 void monticulo(int* pri, int* fin){
     std::make_heap(pri, fin);
-    std::sort_heap(pri, fin);
 }
 
 int main(){
@@ -24,13 +23,15 @@ int main(){
 
     //Inicializacion
     for(int i = 0; i < N; i++){
-        cpy[i] = ord[i] = vec[i] = i;
+        cpy[i] = ord[i] = vec[i] = N - i - 1;
+        // std::cout << vec[i];
+
     }
 
     bool com = true;
     do{        
         copia(ord, cpy, N);
-        std::sort_heap(ord, ord + N);
+        monticulo(ord, ord + N);
         if(memcmp(vec, ord, N-1)){ com = false; }
     }while(std::next_permutation(cpy, cpy + N) && com);
 

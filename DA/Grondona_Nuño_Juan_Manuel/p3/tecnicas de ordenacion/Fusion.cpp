@@ -10,45 +10,41 @@ void copia(int* des, int* ori, int n){
     }
 }
 
-void merge(int* vec, int tam, int izquierda,int medio,int derecha){
-    int h,i,j,k;
-    int b[tam];
-    h=izquierda;
-    i=izquierda;
-    j=medio+1;
+void merge(int* vec, int tam, int izquierda, int medio, int derecha){
+    int h = izquierda ,i = izquierda ,j = medio + 1;
+    int res[tam];
     
-    while((h<=medio)&&(j<=derecha)){
-        if(vec[h]<=vec[j]){
-            b[i]=vec[h];
+    while((h <= medio) && (j <= derecha)){
+        if(vec[h] >= vec[j]){
+            res[i] = vec[h];
             h++;
         }
         else{
-            b[i]=vec[j];
+            res[i] = vec[j];
             j++;
         }
         i++;
     }
-    if(h>medio){
-        for(k=j;k<=derecha;k++){
-            b[i]=vec[k];
+    if(h > medio){
+        for(int k = j; k <= derecha; k++){
+            res[i] = vec[k];
             i++;
         }
     }
     else{
-        for(k=h;k<=medio;k++){
-            b[i]=vec[k];
+        for(int k = h; k<=medio; k++){
+            res[i] = vec[k];
             i++;
         }
     }
-    for(k=izquierda;k<=derecha;k++){
-        vec[k]=b[k];
+    for(int k = izquierda; k<=derecha; k++){
+        vec[k] = res[k];
     }
 }
 
 void merge_sort(int* vec, int tam, int izquierda, int derecha){
-    int medio;
-    if(izquierda<derecha){
-        medio=(izquierda+derecha)/2;
+    if(izquierda>derecha){
+        int medio=(izquierda+derecha)/2;
         merge_sort(vec, tam, izquierda, medio);
         merge_sort(vec, tam, medio+1, derecha);
         merge(vec, tam, izquierda, medio, derecha);
@@ -65,7 +61,8 @@ int main(){
 
     //Inicializacion
     for(int i = 0; i < N; i++){
-        cpy[i] = ord[i] = vec[i] = i;
+        cpy[i] = ord[i] = vec[i] = N - 1 - i;
+        // std::cout << vec[i];
     }
 
     bool com = true;

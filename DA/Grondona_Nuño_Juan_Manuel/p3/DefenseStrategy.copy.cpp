@@ -63,80 +63,63 @@ bool factible(Object* defensa, int row, int col, int cellH, int cellW, float map
     return res;   
 }
 
-void copia(int* des, int* ori, int n){
-    for (int i = 0; i < n; i++){
-        des[i] = ori[i];
-    }
-}
+void quicksort(float* vec,int pri,int ult)
+{
+    int med = (pri+ult)/2, i = pri, j = ult;
+    double pivote = vec[med];
 
-void quicksort(float* vec,int pri,int ult){
-    int med,i,j;
-    double pivote;
-    med=(pri+ult)/2;
-    pivote=vec[med];
-    i=pri;
-    j=ult;
     do{   
-        while(vec[i]<pivote) { i++; }
-        while(vec[j]>pivote) { j--; }
+        while(vec[i] > pivote) { i++; }
+        while(vec[j] < pivote) { j--; }
         if(i<=j){
             int aux = vec[i];
-            vec[i]=vec[j];
-            vec[j]=aux;
+            vec[i] = vec[j];
+            vec[j] = aux;
             i++;
             j--;
         }
-    } while(i<=j);
-    if(pri<j)
-        quicksort(vec,pri,j); /*mismo proceso con sublista izquierda*/
-    if(i<ult)
-        quicksort(vec,i,ult); /*mismo proceso con sublista derecha*/
+    } while(i <= j);
+    if(pri < j)
+        quicksort(vec, pri, j); /*mismo proceso con sublista izquierda*/
+    if( i< ult)
+        quicksort(vec, i, ult); /*mismo proceso con sublista derecha*/
 }
 
-void monticulo(float* pri, float* fin){
-    std::make_heap(pri, fin);
-    std::sort_heap(pri, fin);
-}
-
-void merge(float* vec, int tam, int izquierda,int medio,int derecha){
-    int h,i,j,k;
-    int b[tam];
-    h=izquierda;
-    i=izquierda;
-    j=medio+1;
+void merge(float* vec, int tam, int izquierda, int medio, int derecha){
+    int h = izquierda ,i = izquierda ,j = medio + 1;
+    float res[tam];
     
-    while((h<=medio)&&(j<=derecha)){
-        if(vec[h]<=vec[j]){
-            b[i]=vec[h];
+    while((h <= medio) && (j <= derecha)){
+        if(vec[h] >= vec[j]){
+            res[i] = vec[h];
             h++;
         }
         else{
-            b[i]=vec[j];
+            res[i] = vec[j];
             j++;
         }
         i++;
     }
-    if(h>medio){
-        for(k=j;k<=derecha;k++){
-            b[i]=vec[k];
+    if(h > medio){
+        for(int k = j; k <= derecha; k++){
+            res[i] = vec[k];
             i++;
         }
     }
     else{
-        for(k=h;k<=medio;k++){
-            b[i]=vec[k];
+        for(int k = h; k<=medio; k++){
+            res[i] = vec[k];
             i++;
         }
     }
-    for(k=izquierda;k<=derecha;k++){
-        vec[k]=b[k];
+    for(int k = izquierda; k<=derecha; k++){
+        vec[k] = res[k];
     }
 }
 
 void merge_sort(float* vec, int tam, int izquierda, int derecha){
-    int medio;
-    if(izquierda<derecha){
-        medio=(izquierda+derecha)/2;
+    if(izquierda>derecha){
+        int medio=(izquierda+derecha)/2;
         merge_sort(vec, tam, izquierda, medio);
         merge_sort(vec, tam, medio+1, derecha);
         merge(vec, tam, izquierda, medio, derecha);
@@ -197,6 +180,8 @@ void DEF_LIB_EXPORTED placeDefenses3(bool** freeCells, int nCellsWidth, int nCel
             }
         }
 
+        merge_sort(cellValues, tam, 0, tam-1);
+
         auto defAct = ++defenses.begin();
         int i = 0;
         bool fin1 = true;
@@ -228,6 +213,8 @@ void DEF_LIB_EXPORTED placeDefenses3(bool** freeCells, int nCellsWidth, int nCel
             }
         }
 
+        quicksort(cellValues, 0, tam-1);
+
         auto defAct = ++defenses.begin();
         int i = 0;
         bool fin1 = true;
@@ -258,6 +245,8 @@ void DEF_LIB_EXPORTED placeDefenses3(bool** freeCells, int nCellsWidth, int nCel
                 cellValues[i * nCellsHeight +j] = defaultCellValue(i, j, freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
             }
         }
+
+        std::make_heap(cellValues, cellValues + tam - 1);
 
         auto defAct = ++defenses.begin();
         int i = 0;

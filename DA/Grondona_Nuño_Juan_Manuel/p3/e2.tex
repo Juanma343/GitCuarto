@@ -1,1 +1,42 @@
-Escriba aquí su respuesta al ejercicio 2.
+\begin{lstlisting}
+void merge(int* vec, int tam, int izquierda, int medio, int derecha){
+    int h = izquierda ,i = izquierda ,j = medio + 1;
+    int res[tam];
+    
+    while((h <= medio) && (j <= derecha)){
+        if(vec[h] >= vec[j]){
+            res[i] = vec[h];
+            h++;
+        }
+        else{
+            res[i] = vec[j];
+            j++;
+        }
+        i++;
+    }
+    if(h > medio){
+        for(int k = j; k <= derecha; k++){
+            res[i] = vec[k];
+            i++;
+        }
+    }
+    else{
+        for(int k = h; k<=medio; k++){
+            res[i] = vec[k];
+            i++;
+        }
+    }
+    for(int k = izquierda; k<=derecha; k++){
+        vec[k] = res[k];
+    }
+}
+
+void merge_sort(int* vec, int tam, int izquierda, int derecha){
+    if(izquierda>derecha){
+        int medio=(izquierda+derecha)/2;
+        merge_sort(vec, tam, izquierda, medio);
+        merge_sort(vec, tam, medio+1, derecha);
+        merge(vec, tam, izquierda, medio, derecha);
+    }
+}
+\end{lstlisting}

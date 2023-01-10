@@ -54,89 +54,69 @@ bool factible(Object* defensa, int row, int col, int cellH, int cellW, float map
         }
     }
     for (auto it = defenses.begin(); it != defenses.end() && res; it++){
-        if (distObjeRad(cell, defensa->radio, (*it)->position, (*it)->radio) <= 0) {
-            
+        if (distObjeRad(cell, defensa->radio, (*it)->position, (*it)->radio) <= 0) {   
             res = false;
         }
-        
     }
     return res;   
 }
 
-void copia(int* des, int* ori, int n){
-    for (int i = 0; i < n; i++){
-        des[i] = ori[i];
-    }
-}
-
 void quicksort(float* vec,int pri,int ult){
-    int med,i,j;
-    double pivote;
-    med=(pri+ult)/2;
-    pivote=vec[med];
-    i=pri;
-    j=ult;
+    int med = (pri+ult)/2, i = pri, j = ult;
+    float pivote = vec[med];
+
     do{   
-        while(vec[i]<pivote) { i++; }
-        while(vec[j]>pivote) { j--; }
+        while(vec[i] > pivote) { i++; }
+        while(vec[j] < pivote) { j--; }
         if(i<=j){
-            int aux = vec[i];
-            vec[i]=vec[j];
-            vec[j]=aux;
+            float aux = vec[i];
+            vec[i] = vec[j];
+            vec[j] = aux;
             i++;
             j--;
         }
-    } while(i<=j);
-    if(pri<j)
-        quicksort(vec,pri,j); /*mismo proceso con sublista izquierda*/
-    if(i<ult)
-        quicksort(vec,i,ult); /*mismo proceso con sublista derecha*/
+    } while(i <= j);
+    if(pri < j)
+        quicksort(vec, pri, j); /*mismo proceso con sublista izquierda*/
+    if( i< ult)
+        quicksort(vec, i, ult); /*mismo proceso con sublista derecha*/
 }
 
-void monticulo(float* pri, float* fin){
-    std::make_heap(pri, fin);
-    std::sort_heap(pri, fin);
-}
-
-void merge(float* vec, int tam, int izquierda,int medio,int derecha){
-    int h,i,j,k;
-    int b[tam];
-    h=izquierda;
-    i=izquierda;
-    j=medio+1;
+void merge(float* vec, int tam, int izquierda, int medio, int derecha){
+    int h = izquierda ,i = izquierda ,j = medio + 1;
+    float res[tam];
     
-    while((h<=medio)&&(j<=derecha)){
-        if(vec[h]<=vec[j]){
-            b[i]=vec[h];
+    while((h <= medio) && (j <= derecha)){
+        if(vec[h] >= vec[j]){
+            res[i] = vec[h];
             h++;
         }
         else{
-            b[i]=vec[j];
+            res[i] = vec[j];
             j++;
         }
         i++;
     }
-    if(h>medio){
-        for(k=j;k<=derecha;k++){
-            b[i]=vec[k];
+    if(h > medio){
+        for(int k = j; k <= derecha; k++){
+            res[i] = vec[k];
             i++;
         }
     }
     else{
-        for(k=h;k<=medio;k++){
-            b[i]=vec[k];
+        for(int k = h; k<=medio; k++){
+            res[i] = vec[k];
             i++;
         }
     }
-    for(k=izquierda;k<=derecha;k++){
-        vec[k]=b[k];
+    for(int k = izquierda; k<=derecha; k++){
+        vec[k] = res[k];
     }
 }
 
 void merge_sort(float* vec, int tam, int izquierda, int derecha){
-    int medio;
-    if(izquierda<derecha){
-        medio=(izquierda+derecha)/2;
+    if(izquierda>derecha){
+        int medio=(izquierda+derecha)/2;
         merge_sort(vec, tam, izquierda, medio);
         merge_sort(vec, tam, medio+1, derecha);
         merge(vec, tam, izquierda, medio, derecha);
@@ -149,59 +129,31 @@ void DEF_LIB_EXPORTED placeDefenses3(bool** freeCells, int nCellsWidth, int nCel
     float cellWidth = mapWidth / nCellsWidth;
     float cellHeight = mapHeight / nCellsHeight; 
     int tam = nCellsHeight * nCellsWidth;
-    float ErrRel = 0.001;
+    float ErrRel = 0.1;
     float ErrAbs = 0.01;
     float Err = ErrAbs * ErrRel + ErrAbs;
+    float MaxValue = 3.40282347E+38;
+    float* cellValues = new float[tam]; 
 
     cronometro A, B, C, D;
     int ra = 0, rb = 0, rc = 0, rd = 0;
 
-    A.activar();
-    do {
-        ra++;
-        float* cellValues = new float[tam]; 
-        for(int i = 0; i < nCellsHeight; ++i) {
-            for(int j = 0; j < nCellsWidth; ++j) {
-                cellValues[i * nCellsHeight +j] = defaultCellValue(i, j, freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
-            }
-        }
-
-        auto defAct = ++defenses.begin();
-        int i = 0;
-        bool fin1 = true;
-        while (defAct != defenses.end()){
-            while (fin1 && cellValues[i] != cellValues[nCellsHeight + nCellsWidth - 1]){
-                if ( cellValues[i] != NULL && factible(*defAct, i / nCellsWidth, i % nCellsWidth, cellHeight, cellWidth, mapWidth, mapHeight, obstacles, defenses)){
-                    (*defAct)->position = Vector3(i / nCellsWidth * cellHeight + cellHeight * 0.5f, i % nCellsHeight * cellWidth + cellWidth * 0.5f, 0);;
-                    fin1 = false;
-                    cellValues[i] = NULL;
-                    i = 0;
-                }
-                else{
-                    i++;
-                }
-            }
-            fin1 = true;
-            defAct++;
-        }
-    }while (A.tiempo() < Err);
-    A.parar();
-
     B.activar();
     do {
         rb++;
-        float* cellValues = new float[tam]; 
         for(int i = 0; i < nCellsHeight; ++i) {
             for(int j = 0; j < nCellsWidth; ++j) {
                 cellValues[i * nCellsHeight +j] = defaultCellValue(i, j, freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
             }
         }
 
-        auto defAct = ++defenses.begin();
+        merge_sort(cellValues, tam, 0, tam-1);
+
+        auto defAct = defenses.begin();
         int i = 0;
         bool fin1 = true;
         while (defAct != defenses.end()){
-            while (fin1 && cellValues[i] != cellValues[nCellsHeight + nCellsWidth - 1]){
+            while (fin1 && i < tam){
                 if ( cellValues[i] != NULL && factible(*defAct, i / nCellsWidth, i % nCellsWidth, cellHeight, cellWidth, mapWidth, mapHeight, obstacles, defenses)){
                     (*defAct)->position = Vector3(i / nCellsWidth * cellHeight + cellHeight * 0.5f, i % nCellsHeight * cellWidth + cellWidth * 0.5f, 0);;
                     fin1 = false;
@@ -218,67 +170,5 @@ void DEF_LIB_EXPORTED placeDefenses3(bool** freeCells, int nCellsWidth, int nCel
     }while (B.tiempo() < Err);
     B.parar();
 
-    C.activar();
-    do {
-        rc++;
-        float* cellValues = new float[tam]; 
-        for(int i = 0; i < nCellsHeight; ++i) {
-            for(int j = 0; j < nCellsWidth; ++j) {
-                cellValues[i * nCellsHeight +j] = defaultCellValue(i, j, freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
-            }
-        }
-
-        auto defAct = ++defenses.begin();
-        int i = 0;
-        bool fin1 = true;
-        while (defAct != defenses.end()){
-            while (fin1 && cellValues[i] != cellValues[nCellsHeight + nCellsWidth - 1]){
-                if ( cellValues[i] != NULL && factible(*defAct, i / nCellsWidth, i % nCellsWidth, cellHeight, cellWidth, mapWidth, mapHeight, obstacles, defenses)){
-                    (*defAct)->position = Vector3(i / nCellsWidth * cellHeight + cellHeight * 0.5f, i % nCellsHeight * cellWidth + cellWidth * 0.5f, 0);;
-                    fin1 = false;
-                    cellValues[i] = NULL;
-                    i = 0;
-                }
-                else{
-                    i++;
-                }
-            }
-            fin1 = true;
-            defAct++;
-        }
-    }while (C.tiempo() < Err);
-    C.parar();
-
-    D.activar();
-    do {
-        rd++;
-        float* cellValues = new float[tam]; 
-        for(int i = 0; i < nCellsHeight; ++i) {
-            for(int j = 0; j < nCellsWidth; ++j) {
-                cellValues[i * nCellsHeight +j] = defaultCellValue(i, j, freeCells, nCellsWidth, nCellsHeight, mapWidth, mapHeight, obstacles, defenses);
-            }
-        }
-
-        auto defAct = ++defenses.begin();
-        int i = 0;
-        bool fin1 = true;
-        while (defAct != defenses.end()){
-            while (fin1 && cellValues[i] != cellValues[nCellsHeight + nCellsWidth - 1]){
-                if ( cellValues[i] != NULL && factible(*defAct, i / nCellsWidth, i % nCellsWidth, cellHeight, cellWidth, mapWidth, mapHeight, obstacles, defenses)){
-                    (*defAct)->position = Vector3(i / nCellsWidth * cellHeight + cellHeight * 0.5f, i % nCellsHeight * cellWidth + cellWidth * 0.5f, 0);;
-                    fin1 = false;
-                    cellValues[i] = NULL;
-                    i = 0;
-                }
-                else{
-                    i++;
-                }
-            }
-            fin1 = true;
-            defAct++;
-        }
-    }while (D.tiempo() < Err);
-    D.parar();
-
-    std::cout << (nCellsWidth * nCellsHeight) << '\t' << A.tiempo() / ra << '\t' << B.tiempo() / rb << '\t' << C.tiempo() / rc << '\t' << D.tiempo() / rd << std::endl;
+    std::cout << (nCellsWidth * nCellsHeight) << '\t' << B.tiempo() / rb << '\t' << std::endl;
 }

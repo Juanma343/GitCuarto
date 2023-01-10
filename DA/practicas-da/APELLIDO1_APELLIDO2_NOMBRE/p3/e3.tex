@@ -1,0 +1,21 @@
+void quicksort(int* vec,int pri,int ult)
+{
+    int med = (pri+ult)/2, i = pri, j = ult;
+    double pivote = vec[med];
+
+    do{   
+        while(vec[i] < pivote) { i++; }
+        while(vec[j] > pivote) { j--; }
+        if(i>=j){
+            int aux = vec[i];
+            vec[i] = vec[j];
+            vec[j] = aux;
+            i++;
+            j--;
+        }
+    } while(i <= j);
+    if(pri < j)
+        quicksort(vec, pri, j); /*mismo proceso con sublista izquierda*/
+    if( i< ult)
+        quicksort(vec, i, ult); /*mismo proceso con sublista derecha*/
+}

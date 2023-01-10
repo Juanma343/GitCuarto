@@ -1,1 +1,24 @@
-Escriba aquí su respuesta al ejercicio 5.
+Al analizar el algoritmo podemos difecencias distintas partes:
+\begin{itemize}
+    \item La seccion de de inicialización y de valoración.
+    \item la sección de ordenación.
+    \item La sección de colocación.
+\end{itemize}
+
+Para todas las versiones la primera y última secciones son iguales, por lo analizando una tenemos todas. Y por regla de los máximos, el orden de las funciones será el máximo de los órdenes de estas partes. \\
+
+La sección de inicialización y valoración se compone de dos bucles anidados en el que internamente tiene la función de valoración, por lo que el orden es de $n²$ multiplicado por el orden de la función de valoración que en este caso nos viene dada, esta solo tiene un for con el número de obstáculos el cual no depende de n por lo que lo ponemos tomar de orden constante, por tanto, esta parte es de orden $n²$.\\
+
+Por otra parte, la colocación también podríamos decir que es de orden constante, por la misma razón que el anterior. Esta se compone por dos bucles anidados, el mayor es el número de defensas a colocar, que le pasa lo mismo que a los obstáculos, y en su interior un bucle que termina en cuanto encuentre encuentra una celda factible, por lo que solo en el peor caso sería de orden n, y en el promedio es del mismo orden. Además, dentó de estos dos bucles existe una función la cual a pesar de tener dos for, podemos decir también que es constante. \\
+
+El orden restante es el de la sección ordenada, la cual depende de las versiones del algoritmo. Para el primero, este no tiene, así que el orden es de $n²$.\\
+
+Para el algoritmo de fusión, podemos observar que es de orden $n * \ log{2} (n)$, ya que él se llama así mismo dos veces, una para cada mitad, y posteriormente recoge todo el vector, por lo que se deduce el orden anteriormente dicho.\\
+
+Para el algoritmo de ordenación rápida, tenemos el mismo orden, ya que el propio algoritmo sin ser recursivo es de orden n, y se llama así mismo, pero con la mitad de elementos, por lo que ya tenemos tanto el $n$ como el $\ log{2} (n)$.\\
+
+Para el montículo no tenemos el código, pero conceptualmente, sabiendo que es un apo, y como la eficiencia de inserción de un apo es $\ log{2} (n)$ y como insertamos $n$ elementos, tenemos una eficiencia como las anteriores.\\
+
+Como podemos observar y si usamos regla de los máximos todos nos salen con el mismo Oren que es $n²$, pero si son iguales ¿Por qué nos salen tiempos diferentes?\\
+
+La repuesta a esta pregunta es que el orden no nos indica cuál tarda más per se, sino que nos indica cómo va a crecer, de forma que todas crecerán de la misma manera, y por esta razón sí que va a importar las constantes multiplicativas de estos algoritmos, porque van a dar la diferencia a la hora de ver el tiempo real.\\
