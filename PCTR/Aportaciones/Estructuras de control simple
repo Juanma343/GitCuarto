@@ -1,0 +1,5 @@
+Estructuras de control simple
+
+Aunque los semáforos y las colas de mensajes pueden presentar limitaciones que justifiquen el uso de mecanismos de un mayor nivel de abstracción, los primeros pueden sé más adecuados que estos últimos, dependiendo del problema a solucionar considere las ventajas y desventajas de cada herramienta antes de utilizar.
+
+(Autor: Juan Manuel Grondona Nuño)

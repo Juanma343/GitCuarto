@@ -1,0 +1,5 @@
+Ineficiencia sección crítica
+
+Cuando un proceso está ejecutando un sección crítica es bastante probable que otros procesos se encuentren bloqueados para poder acceder a la misma. En determinadas situaciones, será deseable controlar el tiempo máximo que un proceso puede estar en una sección crítica.
+
+(Autor: Juan Manuel Grondona Nuño)

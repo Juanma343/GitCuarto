@@ -1,0 +1,28 @@
+Implementacion para blokeo fino
+
+public class BloqueoFino {
+
+    private Object lock1 = new Object();
+    private Object lock2 = new Object();
+
+    public void metodo1(){
+        synchronized (lock1) {
+            System.out.println("Método 1 - Bloqueando el objeto 1");
+            synchronized (lock2) {
+                System.out.println("Método 1 - Bloqueando el objeto 2");
+            }
+        }
+    }
+
+    public void metodo2(){
+        synchronized (lock2) {
+            System.out.println("Método 2 - Bloqueando el objeto 2");
+            synchronized (lock1) {
+                System.out.println("Método 2 - Bloqueando el objeto 1");
+            }
+        }
+
+    } 
+}
+
+(Autor: Juan Manuel Grondona Nuño)

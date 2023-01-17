@@ -16,8 +16,8 @@ int main()
     end = std::chrono::system_clock::now();
  
     std::chrono::duration<double> elapsed_seconds = end-start;
-    std::time_t end_time =  			 	std::chrono::system_clock::to_time_t(end);
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
  
-    std::cout << "Calculo terminado a las: " 		<< std::ctime(&end_time)
+    std::cout << "Calculo terminado a las: " << std::ctime(&end_time)
             << "Tiempo: " << elapsed_seconds.count() << "s\n";
 }

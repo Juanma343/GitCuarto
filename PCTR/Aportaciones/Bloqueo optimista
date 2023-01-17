@@ -1,0 +1,5 @@
+Bloqueo optimista
+
+El bloqueo optimista en concurrencia es una técnica de control de concurrencia que se basa en la presunción de que la mayoría de las transacciones realizadas por los usuarios no entrarán en conflicto entre sí. Esto significa que los usuarios pueden leer y escribir datos sin bloquearlos primero. Si dos usuarios intentan modificar los mismos datos al mismo tiempo, el sistema detectará el conflicto y bloqueará una de las transacciones hasta que se resuelva.
+
+(Autor: Juan Manuel Grondona Nuño)

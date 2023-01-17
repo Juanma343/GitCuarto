@@ -1,0 +1,5 @@
+Clase linkedBlokinqueue
+
+La clase LinkedBlockingQueue de Java es una implementación de la interfaz BlockingQueue que proporciona una cola de bloqueo con capacidad limitada. Esta clase permite a los usuarios insertar elementos en la cola y bloquearse hasta que haya espacio disponible para insertar más elementos. También permite a los usuarios extraer elementos de la cola y bloquearse hasta que haya algún elemento disponible para extraer. Esto permite a los programadores controlar el acceso concurrente a un recurso compartido sin tener que escribir código adicional para sincronizar el acceso.
+
+(Autor: Juan Manuel Grondona Nuño)

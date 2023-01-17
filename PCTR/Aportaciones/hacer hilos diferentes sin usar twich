@@ -1,5 +1,6 @@
-package Ejercicio1.Dependencias;
+Ejemplo de creacion de thread sin swich
 
+Este ejmeplo es el hebra.java el ejercico 2 de la practica 2 de esta manera:
 
 abstract class  Padre{
     protected static int n;
@@ -23,22 +24,11 @@ class aux2 extends Padre{
     }
 }
 
-/**
- * Clase hebra del Ejercicio 1
- * se encarga de sumar o retas la variable n segun el parametro tipoHilo
- * con un extend Thread y sobrescirto la clase run()
- */
-
 public class hebra extends Thread{
     private  int  tipoHilo;
     private Padre p;
     private  int  nVueltas;
 
-    /** 
-     * Cosnstructor paremetrizado
-     * @param numero de iteraciones del for
-     * @param tipo de hebra, en esta decide si suma o resta la variable compartiad n
-    */
     public  hebra(int  nVueltas , int  tipoHilo){
         this.nVueltas=nVueltas; this.tipoHilo=tipoHilo ;
         if (tipoHilo == 0){
@@ -53,10 +43,6 @@ public class hebra extends Thread{
         return p.n();
     }
     
-    /**
-     * Funcion que realiza las funcioes del hilo, es uan funcion heredada de a clase Thread
-     */
-
     public  void  run()
     {
         for(int i=0; i<nVueltas; i++){
@@ -66,3 +52,5 @@ public class hebra extends Thread{
     }
 
 }
+
+(Autor: Juan Manuel Grondona Nuño)

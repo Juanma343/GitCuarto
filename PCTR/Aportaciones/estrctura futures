@@ -1,0 +1,5 @@
+Estructuras futuro
+
+Las estructuras de control de flujo futuro en Java permiten a los programadores ejecutar una tarea en un hilo separado y obtener el resultado cuando esté disponible. Esto se logra mediante la creación de objetos Future que contienen una referencia al resultado de la tarea. El programador puede entonces llamar al método get() para obtener el resultado.
+
+(Autor: Juan Manuel Grondona Nuño)

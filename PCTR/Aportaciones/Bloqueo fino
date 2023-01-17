@@ -1,0 +1,3 @@
+Bloqueo fino
+
+El bloqueo fino es una técnica de programación concurrente que se utiliza para sincronizar el acceso a un recurso compartido por varios hilos. El objetivo es evitar la concurrencia indeseable, pero al mismo tiempo permitir acceder a la estructura varios hilos.

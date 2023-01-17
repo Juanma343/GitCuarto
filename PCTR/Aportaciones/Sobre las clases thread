@@ -1,0 +1,5 @@
+La clase ThreadPoolExecutor
+
+Esta es una clase que solemos usar en prácticas gracias a la mayor configuración que nos permite sobre los procesos. Esta clase nos permite darle tiempo de vida a los procesos, el número de procesos activos, mínimos y máximos, lo que nos da una mayor eficiencia, ya que según la carga de trabajo del ordenado, este o aumentara o reducirá el número, y lo más importante es el que permite indicar que proceso hacer cuando está vacío y que hacer si está lleno.
+
+(Autor: Juan Manuel Grondona Nuño)

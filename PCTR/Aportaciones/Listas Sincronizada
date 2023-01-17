@@ -1,0 +1,5 @@
+Ineficiencia synchronicedlist
+
+Las listas sincronizadas, siendo muy útiles, son muy ineficientes, ya que bloquea todas las posiciones de la lista cuando hacer una operación de escritura o de escritura. Lo que significa que estás escribiendo la posición 2 no puedes leer la posición 4.
+
+Esta ineficiencia puede ser solucionadas mediante algunas técnicas de bloqueo, pero estas no son nativas.

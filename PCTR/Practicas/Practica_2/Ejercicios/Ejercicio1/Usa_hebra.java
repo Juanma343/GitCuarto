@@ -1,5 +1,5 @@
 package Ejercicio1;
-import Ejercicio1.Dependencias.hebra;
+import Ejercicio1.Dependencias.*;
 /**
  * Clase encargada de hejeturar los hilos de la clase hebra
    Simplemenre clea dos hilos, uno del primer tipo, el cual suma la variable estatica,
@@ -25,8 +25,8 @@ public class Usa_hebra {
         q.start ();
         p.join();
         q.join();
-        System.out.println("La variable estatica n = " + hebra.n + " Para un valor de nVuelatas de " + i);
-        hebra.n = 0;
+        System.out.println("La variable estatica n = " + p.n() + " Para un valor de nVuelatas de " + i);
+        // hebra.n() = 0;
       }
     }   
 }

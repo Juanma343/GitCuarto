@@ -3,6 +3,10 @@
 
 import mpi.*;
 
+/**
+ * Clase que hace el producto escalar de dos vectores.
+ */
+
 public class prodInterno {
     
     public static void main(String[] args) throws Exception {
