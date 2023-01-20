@@ -3,8 +3,6 @@
 #include <mutex>
 #include <math.h>
 
-std::mutex m;
-
 double aleatorio(){
     double num = rand() % 1000001;
     num /= 1000000;
