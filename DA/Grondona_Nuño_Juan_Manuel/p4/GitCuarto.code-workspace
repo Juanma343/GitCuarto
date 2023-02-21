@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"name": "GitCuarto",
+			"path": "../../.."
+		},
+		{
+			"name": "Ideas-Juegos",
+			"path": "../../../../Ideas-Juegos"
+		},
+		{
+			"name": "EBZ",
+			"path": "../../../../EBZ"
+		},
+		{
+			"name": "serverKotlinTest",
+			"path": "../../../../rentoy/serverKotlinTest"
+		},
+		{
+			"name": "Rentoy-Kotlin",
+			"path": "../../../../rentoy/Rentoy-Kotlin"
+		}
+	],
+	"settings": {
+		"java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable",
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.project.referencedLibraries": [
+			"lib/**/*.jar",
+			"/home/juanma/mpj-v0_44/lib/mpj.jar"
+		],
+		"notes.notesLocation": "/home/juanma/notas"
+	}
+}

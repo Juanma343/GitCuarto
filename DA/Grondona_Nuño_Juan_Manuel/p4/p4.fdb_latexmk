@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1674280421 "/home/juanma/Git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p4/p4.tex" "p4.pdf" "p4" 1674280422
+["pdflatex"] 1674306330 "/home/juanma/Git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p4/p4.tex" "p4.pdf" "p4" 1674306331
   "../autor.tex" 1669167256 376 814ce879b2976562adddebc8d23d7043 ""
   "/etc/texmf/web2c/texmf.cnf" 1669489968 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/juanma/Git/GitCuarto/DA/Grondona_Nuño_Juan_Manuel/p4/p4.tex" 1669167256 1686 198f58d9bc743c69f2ba47649242d8d8 ""
@@ -48,9 +48,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1669489994 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1669490025 2799932 264adfcdf1fef800d3776e1b81e753ca ""
-  "e1.tex" 1674280149 725 61c1f1761efaaa5954336fd4338d8cb3 ""
-  "e2.tex" 1674280421 3791 e6fdea2451f8a9afadef476c0f37bbbc ""
-  "p4.aux" 1674280422 112 1152fd763439616210cd671ba4a359a6 "pdflatex"
+  "e1.tex" 1674306330 915 bb8e97bc761d95e7a6e67398bc1bd8c9 ""
+  "e2.tex" 1674306129 3560 83f2eb95f3649c7ee430f837cae413d0 ""
+  "p4.aux" 1674306330 112 1152fd763439616210cd671ba4a359a6 "pdflatex"
   "p4.tex" 1669167256 1686 198f58d9bc743c69f2ba47649242d8d8 ""
   (generated)
   "p4.aux"

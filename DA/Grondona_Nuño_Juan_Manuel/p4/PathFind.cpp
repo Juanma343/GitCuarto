@@ -65,7 +65,7 @@ void DEF_LIB_EXPORTED calculatePath(AStarNode* originNode, AStarNode* targetNode
     std::list<AStarNode*> abiertos, cerrados;
     bool encontrado = false;
 
-    current->G = _sdistance(current->position, targetNode->position);
+    current->G = 0;
     current->H = additionalCost[(int)(current->position.y / cellsHeight)][(int)(current->position.x / cellsHeight)];
     current->F = current->G + current->H;
     current->parent = nullptr;
